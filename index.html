@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien Application for Citizenship</title>
+    <link rel="stylesheet" href="/alien-ui-project/style.css">
+</head>
+
+<body>
+
+    <iframe width="1260" height="215" src="https://www.youtube.com/embed/zSWdZVtXT7E?si=POH0jSSyt0By5sa_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <div class="form-container">
+        <h1>Alien Application for Citizenship on ZipttyZog-ZZ</h1>
+
+        <form id="alienForm">
+            <label for="alienName">Enter your alien name(min 5 characters):</label>
+            <input type="text" id="alienName" required>
+
+            <label for="alienAge">Select your age(50+ Zog Years): </label>
+            <select id="alienAge" required>
+            <option value="">--Select--</option>
+            <option value = "50">50</option>
+            <option value = "60">60</option>
+            <option value = "75">75</option>
+            <option value="100">100</option>
+        </select>
+        
+        <fieldset>
+            
+            <legend>Choose your Species</legend>
+            <div class="radio-group">
+            <label for=""><input type="radio" name="species" value="Zogtron" required>Zogtron</label>
+            <label for=""><input type="radio" name="species" value="Blipzor" required>Blipzor</label>
+            <label for=""><input type="radio" name="species" value="Galactic" required>Galactic</label>
+        </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Select atleast 2 Powers</legend>
+            <label for=""><input type="checkbox" name="Powers" value="Laser Eyes">Laser Eyes</label>
+            <label for=""><input type="checkbox" name="Powers" value="Teleportation">Teleportation</label>
+            <label for=""><input type="checkbox" name="Powers" value="Super Strength">Super Strength</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Relationship Status</legend>
+            <label for="">
+                <input type="radio" name="Relationship" value="susu"> SUSU
+            </label>
+            <label for="">
+                <input type="radio" name="Relationship" value="knify"> KNIFY
+            </label>
+            <label for="">
+                <input type="radio" name="Relationship" value="huddy"> HUDDY
+            </label>
+            <label for="">
+                <input type="radio" name="Relationship" value="Bonzo"> BONZO
+            </label>
+            <label for="">
+                <input type="radio" name="Relationship" value="GummyFriend"> GummyF
+            </label>
+            <label for="">
+                <input type="radio" name="Relationship" value="BoriFriend">BoriF
+            </label>
+        </fieldset>
+
+
+
+
+        <fieldset>
+            <legend>Gummy Status</legend>
+            <label for="">
+                <input type="radio" name="gummyStatus" value="Mingle"> Mingle
+            </label>
+            <label for="">
+                <input type="radio" name="gummyStatus" value="Gummified"> Gummified
+            </label>
+            <label for="">
+                <input type="radio" name="gummyStatus" value="De-Gummified"> De-Gummified
+            </label>
+        </fieldset>
+
+        <label for="reason">Why Should we Accept You?(Max 200 characters)</label>
+        <textarea name="" id="reason" maxlength="200" required></textarea>
+
+        <label for="captcha">Sole Alien Math: What is 7 Zog + 3 Blip?</label>
+        <input type="text" id="captcha" required>
+
+        <button type="submit">Submit Application</button>
+        <button type="button" id="translateButton">Alien Translation</button>
+        <button type="button" id="danceParty">Alien DJ Dance Party</button>
+
+        </form>
+    </div>
+
+    <div id="mysteryScene" class="hidden">
+        <h2>SUDDEN TWIST</h2>
+        <h3>Comming Soon.. Part 2</h3>
+    </div>
+
+
+    <div id="fakeCrash" class="hidden">
+        <h2>System Error 404: Too Much Love DETECTED</h2>
+        <p>Just Kidding</p>
+    </div>
+    <audio src="alien-laugh.mp3" id="alienLaugh"></audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const alienForm = document.getElementById("alienForm");
+    const translateButton = document.getElementById("translateButton");
+    const dancePartyButton = document.getElementById("danceParty");
+    const mysteryScene = document.getElementById("mysteryScene");
+    const fakeCrash = document.getElementById("fakeCrash");
+    const alienLaugh = document.getElementById("alienLaugh");
+    alienForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const alienName = document.getElementById("alienName").value;
+        const reason = document.getElementById("reason").value;
+        const captcha = document.getElementById("captcha").value;
+        // Get selected species
+        const selectedSpecies = document.querySelector("input[name='species']:checked");
+        const selectedRelation = document.querySelector("input[name='Relationship']:checked");
+        const selectedGummyStatus = document.querySelector("input[name='gummyStatus']:checked");
+        // Get selected powers
+        const selectedPowers = Array.from(document.querySelectorAll("input[name='Powers']:checked"));
+        if (alienName.length < 5) {
+            alert("Alien name must be at least 5 characters long!");
+            return;
+        }
+        if (!selectedSpecies) {
+            alert("Please select your species!");
+            return;
+        }
+        if (!selectedRelation) {
+            alert("Please select your relationship status!");
+            return;
+        }
+        if (!selectedGummyStatus) {
+            alert("Please select your gummy status!");
+            return;
+        }
+        if (selectedPowers.length < 2) {
+            alert("Please select at least 2 powers!");
+            return;
+        }
+        if (reason.length > 200) {
+            alert("Your reason must be 200 characters or less!");
+            return;
+        }
+        if (captcha.trim() !== "10") {
+            alert("Wrong answer to Alien Math!");
+            return;
+        }
+        alert("Application Submitted Successfully! Welcome to ZipttyZog World!!");
+    });
+    translateButton.addEventListener("click", () => {
+        alert("Alien Translator Activated! Beep Boop!");
+    });
+    dancePartyButton.addEventListener("click", () => {
+        alert("Alien DJ Mode On...! It's time to Alien Party!!");
+        alienLaugh.play();
+    });
+    document.querySelectorAll("input[name='Relationship']").forEach((radio) => {
+        radio.addEventListener("change", () => {
+            const selectedRelations = document.querySelectorAll("input[name='Relationship']:checked");
+            if (selectedRelations.length > 2) {
+                mysteryScene.classList.remove("hidden");
+            }
+            else {
+                mysteryScene.classList.add("hidden");
+            }
+        });
+    });
+    alienForm.addEventListener("mouseover", () => {
+        if (Math.random() > 0.95) {
+            fakeCrash.classList.remove("hidden");
+            setTimeout(() => {
+                fakeCrash.classList.add("hidden");
+            }, 3000);
+        }
+    });
+});
+
+    </script>
+    
+</body>
+</html>
